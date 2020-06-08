@@ -3,6 +3,9 @@
 %p
   %b Url:
   = @ticket.url
+%p
+  %b Categories:
+  = render :partial => 'categories/categories_table', :locals => {:categories => @ticket.categories, :crud_links => false}
 
 = link_to 'Edit', edit_ticket_path(@ticket)
 \|
