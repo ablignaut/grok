@@ -28,7 +28,8 @@ gem 'haml-rails'
 gem 'high_voltage'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
-gem 'therubyracer', :platform=>:ruby
+# gem 'therubyracer', :platform=>:ruby
+gem 'mini_racer', platforms: :ruby
 group :development do
   gem 'better_errors'
   gem 'html2haml'
