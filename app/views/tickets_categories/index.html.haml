@@ -1,0 +1,23 @@
+%h1 Listing tickets_categories
+
+%table
+  %thead
+    %tr
+      %th Ticket
+      %th Category
+      %th
+      %th
+      %th
+
+  %tbody
+    - @tickets_categories.each do |tickets_category|
+      %tr
+        %td= tickets_category.ticket
+        %td= tickets_category.category
+        %td= link_to 'Show', tickets_category
+        %td= link_to 'Edit', edit_tickets_category_path(tickets_category)
+        %td= link_to 'Destroy', tickets_category, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Tickets category', new_tickets_category_path
