@@ -1,3 +1,4 @@
+- points_total = 0
 %table
   %thead
     %tr
@@ -7,9 +8,9 @@
       %th
       %th
       %th
-
   %tbody
     - categories.each do |category|
+    - points_total += category.points if category.points
       %tr
         %td= category.name
         %td= category.points
@@ -18,3 +19,8 @@
           %td= link_to 'Show', category
           %td= link_to 'Edit', edit_category_path(category)
           %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+    %tr
+      %td Best guess for sizing
+      %td
+        %strong
+          = points_total
