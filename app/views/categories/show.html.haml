@@ -10,6 +10,6 @@
   %b Points:
   = @category.points
 
-= link_to 'Edit', edit_category_path(@category)
+= link_to 'Edit', edit_product_category_path(@product, @category)
 \|
-= link_to 'Back', categories_path
+= link_to 'Back', product_categories_path(@product)

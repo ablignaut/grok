@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200609130420) do
+ActiveRecord::Schema.define(version: 20200609132242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20200609130420) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "points"
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_categories_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -33,6 +35,8 @@ ActiveRecord::Schema.define(version: 20200609130420) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_tickets_on_product_id"
   end
 
   create_table "tickets_categories", force: :cascade do |t|
@@ -44,6 +48,8 @@ ActiveRecord::Schema.define(version: 20200609130420) do
     t.index ["ticket_id"], name: "index_tickets_categories_on_ticket_id"
   end
 
+  add_foreign_key "categories", "products"
+  add_foreign_key "tickets", "products"
   add_foreign_key "tickets_categories", "categories"
   add_foreign_key "tickets_categories", "tickets"
 end

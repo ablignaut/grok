@@ -1,4 +1,4 @@
-%h1 Listing tickets
+%h1 Tickets
 
 %table
   %thead
@@ -11,11 +11,11 @@
   %tbody
     - @tickets.each do |ticket|
       %tr
-        %td= ticket.url
-        %td= link_to 'Show', ticket
-        %td= link_to 'Edit', edit_ticket_path(ticket)
-        %td= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to ticket.url, url_for(ticket.path_args)
+        %td= link_to 'Show', url_for(ticket.path_args)
+        %td= link_to 'Edit', edit_product_ticket_path(@product, ticket)
+        %td= link_to 'Destroy', product_ticket_path(@product, ticket), method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Ticket', new_ticket_path
+= link_to 'New Ticket', new_product_ticket_path(@product)

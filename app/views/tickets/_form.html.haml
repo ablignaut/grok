@@ -1,4 +1,4 @@
-= simple_form_for @ticket do |f|
+= simple_form_for @ticket.path_args do |f|
   - if @ticket.errors.any?
     #error_explanation
       %h2= "#{pluralize(@ticket.errors.count, "error")} prohibited this ticket from being saved:"

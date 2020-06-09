@@ -1,3 +1,5 @@
 .h3
   Welcome to Grok
-= link_to 'New Ticket', new_ticket_path
+- Product.all.each do |product|
+  .div
+    = link_to "New Ticket for #{product.name}", new_product_ticket_path(product)

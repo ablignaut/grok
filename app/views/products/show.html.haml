@@ -3,6 +3,10 @@
 %p
   %b Name:
   = @product.name
+%p
+  = link_to 'Tickets', product_tickets_path(@product)
+%p
+  = link_to 'Categories', product_categories_path(@product)
 
 = link_to 'Edit', edit_product_path(@product)
 \|

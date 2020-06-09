@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :products
-  resources :tickets_categories
-  resources :categories
-  resources :tickets
+  resources :products do
+    resources :tickets_categories
+    resources :categories
+    resources :tickets
+  end
   root to: 'visitors#index'
 end
