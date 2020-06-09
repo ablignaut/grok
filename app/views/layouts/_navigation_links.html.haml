@@ -1,4 +1,10 @@
-.li
-  = link_to 'Home', root_path
-  = link_to 'Tickets', tickets_path
-  = link_to 'Categories', categories_path
+%li.nav-item.active
+  %li.nav-item
+    %a.nav-link{:href => root_path}
+      Home
+  %li.nav-item
+    %a.nav-link{:href => tickets_path}
+      Tickets
+  %li.nav-item
+    %a.nav-link{:href => categories_path}
+      Categories
