@@ -2,6 +2,7 @@
   %thead
     %tr
       %th Name
+      %th points
       %th Description
       %th
       %th
@@ -11,6 +12,7 @@
     - categories.each do |category|
       %tr
         %td= category.name
+        %td= category.points
         %td= category.description
         - if crud_links
           %td= link_to 'Show', category
