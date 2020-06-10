@@ -1,15 +1,9 @@
 = simple_form_for @ticket.path_args do |f|
-  - if @ticket.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@ticket.errors.count, "error")} prohibited this ticket from being saved:"
-      %ul
-        - @ticket.errors.full_messages.each do |message|
-          %li= message
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
-  .field
-    = f.label :url
-    = f.text_field :url, :class => 'input-large'
-  .field
-    = f.association :categories, :as => :check_boxes
-  .actions
-    = f.submit 'Save'
+  .form-inputs
+    = f.input :url, :class => 'input-large'
+    = f.association :categories, :as => :check_boxes, :collection => @ticket.product.categories
+  .form-actions
+    = f.button :submit
