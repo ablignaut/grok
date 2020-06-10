@@ -14,7 +14,7 @@
       %tr
         %td= category.name
         %td= category.points
-        %td= category.description
+        %td.text-style= category.description
         - if crud_links
           %td= link_to 'Show', url_for(category.path_args)
           %td= link_to 'Edit', edit_product_category_path(@product, category)
